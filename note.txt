@@ -1,0 +1,6 @@
+ng g module mobile --routing
+ng g s api
+ng g s alert
+ng g interceptor http-header
+ng g guard auth
+ng build --prod --aot=true
