@@ -3,8 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  baseURL: 'https://interview-app-by-duggal.herokuapp.com/api/mobile/',
-  imgBaseURL:'https://interview-app-by-duggal.herokuapp.com/',
+  // baseURL: 'https://interview-app-by-duggal.herokuapp.com/api/mobile/',
+  // imgBaseURL:'https://interview-app-by-duggal.herokuapp.com/',
+  baseURL: 'http://localhost:3000/api/',
+  imgBaseURL:'http://localhost:3000/',
   production: false
 };
 
