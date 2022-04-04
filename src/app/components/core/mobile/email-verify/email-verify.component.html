@@ -1,0 +1,6 @@
+<h1 *ngIf="isLoading; else offLoading">Loading...</h1>
+<ng-template #offLoading>
+    <h1>
+        {{isVerified ? "User verify Successfully" :"invalid token"}}
+    </h1>
+</ng-template>

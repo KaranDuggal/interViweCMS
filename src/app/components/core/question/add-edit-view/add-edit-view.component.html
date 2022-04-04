@@ -1,0 +1,107 @@
+<div class="container-fluid mt-4" style="padding-left: 16.5%; padding-right: 1.5%;">
+    <div class="row">
+        <div class="col-sm-12">
+            <h3 class="c_page_title">{{currentState}} Question</h3>
+            <form [formGroup]="questionForm" class="mt-4 add_edit_form">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4">
+                        <label>
+                            <span>Category</span>
+                            <select formControlName="categoryId">
+                                <option value="">Select Category</option>
+                                <option *ngFor="let category of categoryList" [ngValue]="category._id">{{category.name}}</option>
+                            </select>
+                            <span class="text-danger" *ngIf="submitted &&
+                            questionForm.controls?.categoryId?.errors?.required">
+                            This field is required.
+                            </span>
+                        </label>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <label>
+                            <span>Question</span>
+                            <input type="text" maxlength="100" formControlName="question">
+                            <span class="text-danger" *ngIf="submitted &&
+                            questionForm.controls?.question?.errors?.required">
+                            This field is required.
+                            </span>
+                        </label>
+                    </div> 
+                    <div class="col-lg-3 col-md-4">
+                        <label>
+                            <span>Status</span>
+                            <select formControlName="status">
+                                <option value="">Select Status</option>
+                                <option *ngFor="let status of statuses" [ngValue]="status">{{status}}</option>
+                            </select>
+                            <span class="text-danger" *ngIf="submitted &&
+                            questionForm.controls?.status?.errors?.required">
+                            This field is required.
+                            </span>
+                        </label>
+                    </div>
+                                         
+                </div>
+                <div class="d-flex mt-3" *ngIf="currentState != 'View'">
+                    <button class="btn btn-dark" style="margin-right: 2%; width: 120px;" (click)="submit()">Submit</button>
+                    <button class="btn btn-secondary rounded-0" style="width: 120px;" [routerLink]="['/category/listing']">Cancel</button>
+                </div>
+            </form>
+            <div class="row">
+                <div class="col-sm-6">
+                    <h3>Answer</h3>
+                </div>
+                <div class="col-sm-6">
+                    <button style="float: right;" class="btn btn-dark" [routerLink]="['/answer/add']" (click)="questionIdSet(id)">Add Question</button>
+                </div>
+            </div>
+            <mat-form-field appearance="fill">
+                <mat-label>Status</mat-label>
+                <mat-select [ngModel]="fStatus" (ngModelChange)="fStatusChange($event)">
+                    <mat-option value="">Select Status</mat-option>
+                    <mat-option *ngFor="let status of statuses" [value]="status">{{status}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            <br>
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col" >#</th>
+                        <th scope="col" >Answer</th>
+                        <th scope="col" >Rank No</th>
+                        <th scope="col" >No Of Reports</th>
+                        <th scope="col" >Ask By</th>
+                        <th scope="col" >Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let answer of answerList;let i = index">
+                        <th scope="row">{{i+1}}</th>
+                        <td>{{answer.answer}}</td>
+                        <td>{{answer.rank}}</td>
+                        <td>{{answer.reports}}</td>
+                        <td>{{answer.user.name}}</td>
+                        <td>
+                            <a class="m-1" (click)="delete(answer._id)">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                            <a class="m-1" [routerLink]="['/answer/edit/'+answer._id]">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a class="m-1" [routerLink]="['/answer/view/'+answer._id]">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <mat-paginator (page)="onChangedPage($event)" [length]="listCount" [pageSize]="listLength"
+                [pageSizeOptions]="[5, 10, 25, 100]">
+            </mat-paginator>
+            <div *ngIf="!datafetchSuccessfully" class="text-center">
+                Loading....
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

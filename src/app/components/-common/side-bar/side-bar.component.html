@@ -1,0 +1,18 @@
+<!--//INFO: HTML referenced from doctorweb app.-->
+<div *ngIf="showNav" id="mySidenav" [ngClass]="shownavbar? 'toggleSideNav' : '' " class="sidenav list-group list-group-flush shadow">
+    <p (click)="toggle()" class="drawer_toggle_cross" ><i class="fas fa-times"></i></p>
+    <div class="sidebar_logo">
+        <!--//TODO: Change logo-->  
+        <img src="../../../../assets/images/Logo.png" style="width: 240px;" class="" alt="Logo">
+    </div>
+    <a [routerLink]="['/category/listing']" routerLinkActive="active" class="list-group-item list-group-item-action">
+        <i class="fas fa-chart-line"></i> Category
+    </a>
+    <a [routerLink]="['/question/listing']" routerLinkActive="active" class="list-group-item list-group-item-action">
+        <i class="fas fa-building"></i> Question
+    </a>
+    <a (click)="logout()" class="list-group-item list-group-item-action">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+</div>
+<p *ngIf="showNav" (click)="toggle()" class="drawer_toggle_icon" ><i class="fas fa-bars"></i></p>
