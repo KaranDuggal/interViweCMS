@@ -2,3 +2,127 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+a{
+    cursor: pointer;
+}
+textarea{
+    resize:none
+}
+
+table {
+    border: 1px solid #ddd;
+}
+table.dataTable.no-footer {
+    border-bottom: 0 !important;
+}
+table tbody tr td {
+    border-bottom: 1px solid #ddd;
+    padding: 12px 10px !important;
+}
+table thead tr {
+    background-color: #3f8d16;
+}
+table thead tr th {
+    color: #fff;
+    font-weight: 500 !important;
+    border: 0 !important;
+}
+.dataTables_length {
+    margin-bottom: 15px;
+}
+.btn-dark {
+    background-color: #3f8d16 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    padding: 0.6rem 0.75rem 0.8rem !important;
+    line-height: normal !important;
+}
+.list-group-item {
+    padding: 0.7rem 1rem !important;
+}
+.list-group-item-action:focus, .list-group-item-action:hover {
+    background-color: #3f8d16 !important;
+    color: #fff !important;
+}
+.add_edit_form label {
+    width: 100%;
+}
+.add_edit_form label span {
+    margin-bottom: 6px;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+}
+.add_edit_form input:not([type="submit"]), .add_edit_form textarea,
+.add_edit_form select {
+    display: block;
+    width: 100%;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    padding: 4px 10px;
+    background-color: #fff;
+
+}
+.c_page_title {
+    padding-bottom: 16px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #3f8d16;
+    color: #3f8d16;
+}
+.add_edit_form input:focus, .add_edit_form textarea:focus,
+.add_edit_form select:focus {
+    box-shadow: none;
+    border-color: #3f8d16 !important;
+}
+.add_edit_form input:focus-visible, .add_edit_form textarea:focus-visible,
+.add_edit_form select:focus-visible {
+    outline: none;
+}
+
+td.actions{
+    text-align: center;
+}
+
+td.actions a{
+    color: #000;
+    padding: 5%;
+}
+
+.text-green{
+    color: #3f8d16 !important;
+}
+
+.text-red{
+    color: red;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.green-border{
+    border-color: #3f8d16 !important;
+}
+@media (max-width:1024px) {
+    table.dataTable.no-footer {
+        display: inherit;
+        overflow: auto;
+    }
+    table.dataTable th, table.dataTable td {
+        white-space: nowrap;
+        min-width: 150px;
+    }
+    .container-fluid.mt-4 {
+        padding-left: 1.5% !important;
+    }
+    .container-fluid.mt-4 h3 {
+        margin-left: 30px;
+    }
+    .c_page_title {
+        border-bottom: 0;
+        color: #000;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+}
