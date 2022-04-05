@@ -20,20 +20,20 @@
             <table class="table">
                 <thead class="table-dark">
                     <tr>
-                        <th scope="col" >#</th>
-                        <th scope="col" >Category Name</th>
-                        <th scope="col" >Question</th>
-                        <th scope="col" >Rank No</th>
-                        <th scope="col" >No Of Reports</th>
-                        <th scope="col" >Ask By</th>
-                        <th scope="col" >Actions</th>
+                        <th scope="col" style="width: 2%;">#</th>
+                        <th scope="col" style="width: 10%;">Category Name</th>
+                        <th scope="col" style="width: 50%;">Question</th>
+                        <th scope="col" style="width: 5%;">Rank No</th>
+                        <th scope="col" style="width: 8%;">No Of Reports</th>
+                        <th scope="col" style="width: 10%;">Ask By</th>
+                        <th scope="col" style="width: 8%;">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let question of questionList;let i = index">
                         <th scope="row">{{i+1}}</th>
                         <td>{{question?.category?.name ?? "none"}}</td>
-                        <td>{{question.question}}</td>
+                        <td class="table-text-overflow">{{question.question}}</td>
                         <td>{{question.rank}}</td>
                         <td>{{question.reports}}</td>
                         <td>{{question.user.name}}</td>

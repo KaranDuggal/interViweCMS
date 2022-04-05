@@ -53,7 +53,8 @@ export class AddEditViewComponent implements OnInit {
   }
   form(){
     this.categoryForm = this.formBuilder.group({
-      name: new FormControl({value: null, disabled: this.currentState ==='View' ? true:false},[Validators.required]),
+      name: new FormControl({value: null, disabled: this.currentState ==='View' ? true:false},[Validators.required,Validators.maxLength(20)]),
+      description: new FormControl({value: null, disabled: this.currentState ==='View' ? true:false},[Validators.required,Validators.maxLength(100)]),
       status: new FormControl({value: null, disabled: this.currentState ==='View' ? true:false},[Validators.required]),
       position: new FormControl({value: null, disabled: this.currentState ==='View' ? true:false}),
       // image:new FormControl(null,[Validators.required,]),

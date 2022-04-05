@@ -104,6 +104,12 @@ td.actions a{
 .green-border{
     border-color: #3f8d16 !important;
 }
+.table-text-overflow{
+    max-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+   }
 @media (max-width:1024px) {
     table.dataTable.no-footer {
         display: inherit;
