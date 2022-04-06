@@ -25,6 +25,16 @@
                         </label>
                     </div>
                     <div class="col-lg-3 col-md-4">
+                        <label>
+                            <span>Type</span>
+                            <input type="text" maxlength="25" formControlName="type">
+                            <span class="text-danger" *ngIf="submitted &&
+                            categoryForm.controls?.type?.errors?.required">
+                            This field is required.
+                            </span>
+                        </label>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
                         <label for="status">
                             <span>Status</span>
                             <select formControlName="status">
