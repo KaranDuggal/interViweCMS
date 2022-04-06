@@ -47,61 +47,63 @@
                     <button class="btn btn-secondary rounded-0" style="width: 120px;" [routerLink]="['/category/listing']">Cancel</button>
                 </div>
             </form>
-            <div class="row">
-                <div class="col-sm-6">
-                    <h3>Answer</h3>
+            <div *ngIf="currentState === 'Edit' || currentState === 'View'">
+                <div class="row mt-5">
+                    <div class="col-sm-6">
+                        <h3>Answer</h3>
+                    </div>
+                    <div class="col-sm-6">
+                        <button style="float: right;" class="btn btn-dark" [routerLink]="['/answer/add']" (click)="questionIdSet(id)">Add Question</button>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <button style="float: right;" class="btn btn-dark" [routerLink]="['/answer/add']" (click)="questionIdSet(id)">Add Question</button>
+                <mat-form-field appearance="fill">
+                    <mat-label>Status</mat-label>
+                    <mat-select [ngModel]="fStatus" (ngModelChange)="fStatusChange($event)">
+                        <mat-option value="">Select Status</mat-option>
+                        <mat-option *ngFor="let status of statuses" [value]="status">{{status}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                <br>
+                <table class="table">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col" style="width: 2%;">#</th>
+                            <th scope="col" style="width: 50%;">Answer</th>
+                            <th scope="col" style="width: 10%;">Rank No</th>
+                            <th scope="col" style="width: 10%;">No Of Reports</th>
+                            <th scope="col" style="width: 10%;">Ask By</th>
+                            <th scope="col" style="width: 10%;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let answer of answerList;let i = index">
+                            <th scope="row">{{i+1}}</th>
+                            <td class="table-text-overflow">{{answer.answer}}</td>
+                            <td>{{answer.rank}}</td>
+                            <td>{{answer.reports}}</td>
+                            <td>{{answer.user.name}}</td>
+                            <td>
+                                <a class="m-1" (click)="delete(answer._id)">
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                                <a class="m-1" [routerLink]="['/answer/edit/'+answer._id]">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a class="m-1" [routerLink]="['/answer/view/'+answer._id]">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <mat-paginator (page)="onChangedPage($event)" [length]="listCount" [pageSize]="listLength"
+                    [pageSizeOptions]="[5, 10, 25, 100]">
+                </mat-paginator>
+                <div *ngIf="!datafetchSuccessfully" class="text-center">
+                    Loading....
                 </div>
+                <br>
             </div>
-            <mat-form-field appearance="fill">
-                <mat-label>Status</mat-label>
-                <mat-select [ngModel]="fStatus" (ngModelChange)="fStatusChange($event)">
-                    <mat-option value="">Select Status</mat-option>
-                    <mat-option *ngFor="let status of statuses" [value]="status">{{status}}</mat-option>
-                </mat-select>
-              </mat-form-field>
-            <br>
-            <table class="table">
-                <thead class="table-dark">
-                    <tr>
-                        <th scope="col" >#</th>
-                        <th scope="col" >Answer</th>
-                        <th scope="col" >Rank No</th>
-                        <th scope="col" >No Of Reports</th>
-                        <th scope="col" >Ask By</th>
-                        <th scope="col" >Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let answer of answerList;let i = index">
-                        <th scope="row">{{i+1}}</th>
-                        <td>{{answer.answer}}</td>
-                        <td>{{answer.rank}}</td>
-                        <td>{{answer.reports}}</td>
-                        <td>{{answer.user.name}}</td>
-                        <td>
-                            <a class="m-1" (click)="delete(answer._id)">
-                                <i class="fas fa-trash-alt"></i>
-                            </a>
-                            <a class="m-1" [routerLink]="['/answer/edit/'+answer._id]">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a class="m-1" [routerLink]="['/answer/view/'+answer._id]">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <mat-paginator (page)="onChangedPage($event)" [length]="listCount" [pageSize]="listLength"
-                [pageSizeOptions]="[5, 10, 25, 100]">
-            </mat-paginator>
-            <div *ngIf="!datafetchSuccessfully" class="text-center">
-                Loading....
-            </div>
-            <br>
         </div>
     </div>
 </div>
