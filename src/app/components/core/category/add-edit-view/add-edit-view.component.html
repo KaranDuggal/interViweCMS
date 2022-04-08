@@ -4,60 +4,51 @@
             <h3 class="c_page_title">{{currentState}} category</h3>
             <form [formGroup]="categoryForm" class="mt-4 add_edit_form">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4">
-                        <label>
-                            <span>Name</span>
-                            <input type="text" maxlength="20" formControlName="name">
-                            <span class="text-danger" *ngIf="submitted &&
-                            categoryForm.controls?.name?.errors?.required">
-                            This field is required.
-                            </span>
-                        </label>
+                    <div class="col-lg-3 col-md-4 mb-3 my-2">
+                        <label>Name</label>
+                        <input type="text" class="form-control" maxlength="20" formControlName="name">
+                        <span class="text-danger" *ngIf="submitted &&
+                        categoryForm.controls?.name?.errors?.required">
+                        This field is required.
+                        </span> 
                     </div>
-                    <div class="col-lg-3 col-md-4">
-                        <label>
-                            <span>Description</span>
-                            <input type="text" maxlength="100" formControlName="description">
-                            <span class="text-danger" *ngIf="submitted &&
-                            categoryForm.controls?.description?.errors?.required">
-                            This field is required.
-                            </span>
-                        </label>
+                    <div class="col-lg-3 col-md-4 my-2">
+                        <label>Description</label>
+                        <input type="text" class="form-control" maxlength="100" formControlName="description">
+                        <span class="text-danger" *ngIf="submitted &&
+                        categoryForm.controls?.description?.errors?.required">
+                        This field is required.
+                        </span>
                     </div>
-                    <div class="col-lg-3 col-md-4">
-                        <label>
-                            <span>Type</span>
-                            <input type="text" maxlength="30" formControlName="type">
-                            <span class="text-danger" *ngIf="submitted &&
-                            categoryForm.controls?.type?.errors?.required">
-                            This field is required.
-                            </span>
-                        </label>
+                    <div class="col-lg-3 col-md-4 my-2">
+                        <label>Type</label>
+                        <input type="text" class="form-control" maxlength="30" formControlName="type">
+                        <span class="text-danger" *ngIf="submitted &&
+                        categoryForm.controls?.type?.errors?.required">
+                        This field is required.
+                        </span>
+                        
                     </div>
-                    <div class="col-lg-3 col-md-4">
-                        <label for="status">
-                            <span>Status</span>
-                            <select formControlName="status">
-                                <option value="">Select Position</option>
-                                <option *ngFor="let status of statuses" [ngValue]="status">{{status}}</option>
-                            </select>
-                            <span class="text-danger" *ngIf="submitted &&
-                            categoryForm.controls?.status?.errors?.required">
-                            This field is required.
-                            </span>
-                        </label>
+                    <div class="col-lg-3 col-md-4 my-2">
+                        <label>Status</label>
+                        <select class="form-control" formControlName="status">
+                            <option value="">Select Position</option>
+                            <option *ngFor="let status of statuses" [ngValue]="status">{{status}}</option>
+                        </select>
+                        <span class="text-danger" *ngIf="submitted &&
+                        categoryForm.controls?.status?.errors?.required">
+                        This field is required.
+                        </span>
                     </div>
-                    <div class="col-lg-3 col-md-4" *ngIf="currentState != 'Add'">
-                        <label for="position">
-                            <span>Position</span>
-                            <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="4" formControlName="position">
-                            <span class="text-danger" *ngIf="submitted &&
-                            categoryForm['position'] && 
-                            categoryForm['position'].errors && 
-                            categoryForm['position'].errors['required']">
-                            This field is required.
-                            </span>
-                        </label>
+                    <div class="col-lg-3 col-md-4 my-2" *ngIf="currentState != 'Add'">
+                        <label>Position</label>
+                        <input type="text" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*?)\..*/g, '$1');" maxlength="4" formControlName="position">
+                        <span class="text-danger" *ngIf="submitted &&
+                        categoryForm['position'] && 
+                        categoryForm['position'].errors && 
+                        categoryForm['position'].errors['required']">
+                        This field is required.
+                        </span>
                     </div>
                     <div class="form-group" *ngIf="currentState != 'View'">
                         <label for="file">File:</label>
@@ -70,8 +61,8 @@
                 </div>
                 <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px">
                 <div class="d-flex mt-3" *ngIf="currentState != 'View'">
-                    <button class="btn btn-dark" [disabled] = 'submitBtn' style="margin-right: 2%; width: 120px;" (click)="submit()">Submit</button>
-                    <button class="btn btn-secondary rounded-0" style="width: 120px;" [routerLink]="['/category/listing']">Cancel</button>
+                    <button [disabled] = 'submitBtn' style="margin-right: 2%;" (click)="submit()">Submit</button>
+                    <button class="btn-secondary" [routerLink]="['/category/listing']">Cancel</button>
                 </div>
             </form>
             <div *ngIf="currentState === 'Edit' || currentState === 'View'">
