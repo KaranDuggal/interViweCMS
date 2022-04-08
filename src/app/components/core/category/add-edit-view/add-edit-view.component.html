@@ -59,7 +59,7 @@
                             (change)="onFileChange($event)">
                     </div>
                 </div>
-                <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px">
+                <img [src]="imageSrc" class="mt-3" *ngIf="imageSrc" style="width:400px;">
                 <div class="d-flex mt-3" *ngIf="currentState != 'View'">
                     <button class="my-btn" [disabled] = 'submitBtn' style="margin-right: 2%;" (click)="submit()">Submit</button>
                     <button class="my-btn btn-secondary" [routerLink]="['/category/listing']">Cancel</button>
