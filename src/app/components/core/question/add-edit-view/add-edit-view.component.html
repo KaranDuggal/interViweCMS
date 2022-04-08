@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-4">
                         <label>Category</label>
-                        <select class="form-control" formControlName="categoryId">
+                        <select class="form-control my-input" formControlName="categoryId">
                             <option value="">Select Category</option>
                             <option *ngFor="let category of categoryList" [ngValue]="category._id">{{category.name}}</option>
                         </select>
@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-lg-3 col-md-4">
                         <label>Question</label>
-                        <input type="text" maxlength="100" class="form-control" formControlName="question">
+                        <input type="text" maxlength="100" class="form-control my-input" formControlName="question">
                         <span class="text-danger" *ngIf="submitted &&
                         questionForm.controls?.question?.errors?.required">
                         This field is required.
@@ -25,7 +25,7 @@
                     </div> 
                     <div class="col-lg-3 col-md-4">
                         <label>Status</label>
-                            <select class="form-control" formControlName="status">
+                            <select class="form-control my-input" formControlName="status">
                                 <option value="">Select Status</option>
                                 <option *ngFor="let status of statuses" [ngValue]="status">{{status}}</option>
                             </select>

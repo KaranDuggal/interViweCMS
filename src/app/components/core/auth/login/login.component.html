@@ -12,7 +12,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label for="email_address">Email</label>
-                                    <input type="email" class="form-control" formControlName="email" autofocus>
+                                    <input type="email" class="form-control my-input" formControlName="email" autofocus>
                                     <span class="text-danger" *ngIf="submitted && loginFrom.controls.email.errors?.required">
                                         This field is required.
                                     </span>
@@ -22,7 +22,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="password">Password</label>
-                                    <input type="password" class="form-control" maxlength="20" formControlName="password">
+                                    <input type="password" class="form-control my-input" maxlength="20" formControlName="password">
                                     <span class="text-danger" *ngIf="submitted && loginFrom.controls.password.errors?.required">
                                         This field is required.
                                     </span>
