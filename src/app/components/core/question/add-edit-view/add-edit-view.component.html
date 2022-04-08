@@ -5,32 +5,27 @@
             <form [formGroup]="questionForm" class="mt-4 add_edit_form">
                 <div class="row">
                     <div class="col-lg-3 col-md-4">
-                        <label>
-                            <span>Category</span>
-                            <select formControlName="categoryId">
-                                <option value="">Select Category</option>
-                                <option *ngFor="let category of categoryList" [ngValue]="category._id">{{category.name}}</option>
-                            </select>
-                            <span class="text-danger" *ngIf="submitted &&
-                            questionForm.controls?.categoryId?.errors?.required">
-                            This field is required.
-                            </span>
-                        </label>
+                        <label>Category</label>
+                        <select class="form-control" formControlName="categoryId">
+                            <option value="">Select Category</option>
+                            <option *ngFor="let category of categoryList" [ngValue]="category._id">{{category.name}}</option>
+                        </select>
+                        <span class="text-danger" *ngIf="submitted &&
+                        questionForm.controls?.categoryId?.errors?.required">
+                        This field is required.
+                        </span>
                     </div>
                     <div class="col-lg-3 col-md-4">
-                        <label>
-                            <span>Question</span>
-                            <input type="text" maxlength="100" formControlName="question">
-                            <span class="text-danger" *ngIf="submitted &&
-                            questionForm.controls?.question?.errors?.required">
-                            This field is required.
-                            </span>
-                        </label>
+                        <label>Question</label>
+                        <input type="text" maxlength="100" class="form-control" formControlName="question">
+                        <span class="text-danger" *ngIf="submitted &&
+                        questionForm.controls?.question?.errors?.required">
+                        This field is required.
+                        </span>
                     </div> 
                     <div class="col-lg-3 col-md-4">
-                        <label>
-                            <span>Status</span>
-                            <select formControlName="status">
+                        <label>Status</label>
+                            <select class="form-control" formControlName="status">
                                 <option value="">Select Status</option>
                                 <option *ngFor="let status of statuses" [ngValue]="status">{{status}}</option>
                             </select>
@@ -38,13 +33,11 @@
                             questionForm.controls?.status?.errors?.required">
                             This field is required.
                             </span>
-                        </label>
                     </div>
-                                         
                 </div>
                 <div class="d-flex mt-3" *ngIf="currentState != 'View'">
-                    <button class="btn btn-dark" style="margin-right: 2%; width: 120px;" (click)="submit()">Submit</button>
-                    <button class="btn btn-secondary rounded-0" style="width: 120px;" [routerLink]="['/category/listing']">Cancel</button>
+                    <button style="margin-right: 2%;" (click)="submit()">Submit</button>
+                    <button class="btn-secondary" [routerLink]="['/category/listing']">Cancel</button>
                 </div>
             </form>
             <div *ngIf="currentState === 'Edit' || currentState === 'View'">
