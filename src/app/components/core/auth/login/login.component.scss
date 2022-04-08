@@ -7,7 +7,7 @@
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: #3f8d16;
+    color: #283B71;
     padding: 0;
 }
 .login_form label {
@@ -22,5 +22,28 @@
 }
 .form-control:focus {
     box-shadow: none;
-    border-color: #3f8d16 !important;
+    border-color: #283B71 !important;
+}
+/* CSS */
+.button-34 {
+  background: #283B71;
+  border-radius: 999px;
+  box-shadow: #283B71 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  width: 150px;
 }
