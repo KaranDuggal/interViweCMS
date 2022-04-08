@@ -61,8 +61,8 @@
                 </div>
                 <img [src]="imageSrc" *ngIf="imageSrc" style="height: 300px; width:500px">
                 <div class="d-flex mt-3" *ngIf="currentState != 'View'">
-                    <button [disabled] = 'submitBtn' style="margin-right: 2%;" (click)="submit()">Submit</button>
-                    <button class="btn-secondary" [routerLink]="['/category/listing']">Cancel</button>
+                    <button class="my-btn" [disabled] = 'submitBtn' style="margin-right: 2%;" (click)="submit()">Submit</button>
+                    <button class="my-btn btn-secondary" [routerLink]="['/category/listing']">Cancel</button>
                 </div>
             </form>
             <div *ngIf="currentState === 'Edit' || currentState === 'View'">
@@ -71,7 +71,7 @@
                         <h3>Question</h3>
                     </div>
                     <div class="col-sm-6">
-                        <button style="float: right;" [routerLink]="['/question/add']">Add Question</button>
+                        <button class="my-btn" style="float: right;" [routerLink]="['/question/add']">Add Question</button>
                     </div>
                 </div>
                 <mat-form-field appearance="fill">
