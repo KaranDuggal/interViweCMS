@@ -3,7 +3,7 @@
     background-color: transparent;
     text-align: center;
     border: 0;
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -12,13 +12,16 @@
 }
 .login_form label {
     margin-bottom: 5px;
-    font-size: 14px;
+    margin-left: 6px;
+    font-size: 16px;
     font-weight: 500;
 }
 .login_form input {
     border-radius: 0;
     border: 1px solid #ddd;
     padding: 8px 10px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    border-radius: 15px;
 }
 .form-control:focus {
     box-shadow: none;
